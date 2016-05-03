@@ -93,7 +93,7 @@ def gpio_setup():
     gpio.setup(MISO, gpio.IN)
 
 
-def start_server(host, port):
+def start_server(host, port, topic):
     gpio_setup()
     led_state = False
     context = zmq.Context()
@@ -105,7 +105,7 @@ def start_server(host, port):
     print('Server started. ctrl-c to abort.\n')
     try:
         while True:
-            topic = '10001'  # just a number for identification
+#            topic = '10001'  # just a number for identification
             # value = round(random.random() * 10, 3)
             value = get_adc_data(0, SCLK, MOSI, MISO, CS)
             current_time = datetime.datetime.now().strftime('%Y-%m-%d@%H:%M:%S.%f')
@@ -123,7 +123,7 @@ def start_server(host, port):
         gpio.cleanup()
 
 
-def start_client(host, port):
+def start_client(host, port, topic):
     context = zmq.Context()
     print('Client started. ctrl-c to abort.\n')
     try:
@@ -147,8 +147,9 @@ def start_client(host, port):
 
 def main():
     parser = argparse.ArgumentParser(prog='rasdaq')
-    parser.add_argument('--host', nargs=1, type=str, help='Host address', default='127.0.0.1')
-    parser.add_argument('--port', nargs=1, type=int, help='Port number', default=1234)
+    parser.add_argument('--host', nargs=1, type=str, help='Host address', default='140.181.97.133')
+    parser.add_argument('--port', nargs=1, type=int, help='Port number', default=10000)
+    parser.add_argument('--topic', nargs=1, type=int, help='Port number', default=10001)
     parser.add_argument('--version', action='version', version=__version__)
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--client', action='store_true', help='Start client')
@@ -174,7 +175,7 @@ def main():
         start_server(host, port)
 
     elif args.host:
-        start_client(host, port)
+        start_client(host, port, topic)
 
     else:
         parser.print_help()

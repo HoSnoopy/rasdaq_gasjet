@@ -17,6 +17,7 @@ from mainwindow_ui import Ui_MainWindow
 from aboutdialog_ui import Ui_AbooutDialog
 from zmq_listener import ZMQListener
 from version import __version__
+from gasrechnung import *
 
 
 class mainWindow(QMainWindow, Ui_MainWindow):
@@ -33,31 +34,26 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         super(mainWindow, self).__init__()
         self.setupUi(self)
 
-        radius = 2.5e-5
-        m = 4.002602/6.02214129e26
-        X = 1.63
-        Korr = 5.7
-        Saug = 1320
-        Label = 'Helium'
 
-        self.gasart_label.setText(Label)
 
-        text, ok = QInputDialog.getText(self, 'Settings', 'Enter the host address:', QLineEdit.Normal, '140.181.97.133')
-        if ok:
-            host = str(text)
-        text, ok = QInputDialog.getText(self, 'Settings', 'Enter the port number:', QLineEdit.Normal, '10000')
-        if ok:
-            port = int(text)
-        text, ok = QInputDialog.getText(self, 'Settings', 'Enter the topic number for Dump-Pressure:', QLineEdit.Normal, '10001')
-        if ok:
-            topic = str(text)
-        text, ok = QInputDialog.getText(self, 'Settings', 'Enter the topic number for Temperature:', QLineEdit.Normal, '10004')
-        if ok:
-            topic2 = str(text)
+        #text, ok = QInputDialog.getText(self, 'Settings', 'Enter the host address:', QLineEdit.Normal, '140.181.97.133')
+        #if ok:
+        #    host = str(text)
+        #text, ok = QInputDialog.getText(self, 'Settings', 'Enter the port number:', QLineEdit.Normal, '10000')
+        #if ok:
+        #    port = int(text)
+        #text, ok = QInputDialog.getText(self, 'Settings', 'Enter the topic number for Dump-Pressure:', QLineEdit.Normal, '10001')
+        #if ok:
+        #   topic = str(text)
+        host = '140.181.97.133'
+        port = 10000
+        topic = '10001'
 
+        self.gasart='Helium'
+        self.gasart_label.setText(self.gasart)
 
         self.thread = QThread()
-        self.zeromq_listener = ZMQListener(host, port, topic)
+        self.zeromq_listener = ZMQListener(host, port)
         self.zeromq_listener.moveToThread(self.thread)
 
         self.thread.started.connect(self.zeromq_listener.loop)
@@ -89,6 +85,11 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         self.actionStickstoff.triggered.connect(self.Stickstoff)
 
     def signal_received(self, message):
+        l=len(message)
+        l=l-1
+        message = message[2:l]
+        print(message)
+        message = Gas.dichte(self, message, self.gasart)
         self.lcdNumber.setDigitCount(8)
         self.lcdNumber.display(float(message))
 
@@ -106,62 +107,33 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         """
         self.statusbar.showMessage(message)
 
-    def Wasserstoff(self):
-        m = 2.016/6.02214129e26
-        X = 1.4054
-        Korr = 2.4
-        Saug = 1100
-        Label = 'Wasserstoff'
-        self.gasart_label.setText(Label)
-
     def Helium(self):
-        m = 4.002602/6.02214129e26
-        X = 1.63
-        Korr = 5.7
-        Saug = 1320
-        Label = 'Helium'
-        self.gasart_label.setText(Label)
+        self.gasart='Helium'
+        self.gasart_label.setText(self.gasart)
+
+    def Wasserstoff(self):
+        self.gasart='Wasserstoff'
+        self.gasart_label.setText(self.gasart)
 
     def Neon(self):
-        m= 20.179/6.02214129e26
-        X= 1.6669
-        Korr = 3.8
-        Saug = 1000
-        Label = 'Neon'
-        self.gasart_label.setText(Label)
+        self.gasart='Helium'
+        self.gasart_label.setText(self.gasart)
 
     def Argon(self):
-        m = 39.948/6.02214129e26
-        X = 1.6696
-        Korr = 0.8
-        Saug = 1000
-        Label = 'Argon'
-        self.gasart_label.setText(Label)
+        self.gasart='Argon'
+        self.gasart_label.setText(self.gasart)
 
     def Krypton(self):
-        m = 83.798/6.02214129e26
-        X =  1.6722
-        Korr = 0.5
-        Saug = 850
-        Label = 'Krypton'
-        self.gasart_label.setText(Label)
+        self.gasart='Krypton'
+        self.gasart_label.setText(self.gasart)
 
     def Xenon(self):
-        m = 131.293/6.02214129e26
-        X = 1.6773
-        Korr = 0.4
-        Saug = 850
-        Label = 'Xenon'
-        self.gasart_label.setText(Label)
+        self.gasart='Xenon'
+        self.gasart_label.setText(self.gasart)
 
     def Stickstoff(self):
-        m = 28.0134/6.02214129e26
-        X = 1.4013
-        Korr = 1
-        Saug = 1320
-        Label = 'Stickstoff'
-        self.gasart_label.setText(Label)
-
+        self.gasart='Stickstoff'
+        self.gasart_label.setText(self.gasart)
 
     def show_about_dialog(self):
         """
