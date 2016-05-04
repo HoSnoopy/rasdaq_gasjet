@@ -14,11 +14,10 @@ Follow the description on the tutorial mentioned above. Additionally what has be
 
 | Name | Pin No. |
 |------|---------|
-| SCLK | 23      |
-| MISO | 21      |
-| MOSI | 19      |
-| CS   | 29      |
-| LED  | 31      |
+| SCLK | 18      |
+| MISO | 23      |
+| MOSI | 24      |
+| CS   | 25      |
 
 
 As you can see, an additional LED is connected to the raspberry with a 330 ohm resistor in between.
@@ -63,17 +62,12 @@ The defulat username and password should be `pi` and `raspberry`.
 #### Usage
 You can run the server on the raspberry by:
 
-    ./rdcli ./--host IP_ADRESS --port 1234 --server
+    ./rd_server
 
 and accordingly the client by:
 
-    ./rdcli ./--host IP_ADRESS --port 1234 --client
+    ./rdgui
 
-It is recommended to use numerals for IP address.
-To print out the help, type:
-
-    ./rdcli --help
-    
 ## Acknowledgements
-Many thanks goes to [carlkl](https://github.com/carlkl) for pointing out the wonderful ZeroMQ library.
+Many thanks goes to [carlkl](https://github.com/carlkl) for pointing out the wonderful ZeroMQ library and Erik Bartmann for the good Tutorial.
 # rasdaq_gasjet
