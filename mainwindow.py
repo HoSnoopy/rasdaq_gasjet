@@ -34,30 +34,25 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         super(mainWindow, self).__init__()
         self.setupUi(self)
 
-
-
-        #text, ok = QInputDialog.getText(self, 'Settings', 'Enter the host address:', QLineEdit.Normal, '140.181.97.133')
-        #if ok:
+        # text, ok = QInputDialog.getText(self, 'Settings', 'Enter the host address:', QLineEdit.Normal, '140.181.97.133')
+        # if ok:
         #    host = str(text)
-        #text, ok = QInputDialog.getText(self, 'Settings', 'Enter the port number:', QLineEdit.Normal, '10000')
-        #if ok:
+        # text, ok = QInputDialog.getText(self, 'Settings', 'Enter the port number:', QLineEdit.Normal, '10000')
+        # if ok:
         #    port = int(text)
-        #text, ok = QInputDialog.getText(self, 'Settings', 'Enter the topic number for Dump-Pressure:', QLineEdit.Normal, '10001')
-        #if ok:
+        # text, ok = QInputDialog.getText(self, 'Settings', 'Enter the topic number for Dump-Pressure:', QLineEdit.Normal, '10001')
+        # if ok:
         #   topic = str(text)
         host = '140.181.97.133'
         port = 10000
         topic = '10001'
-
-        self.gasart='Helium'
-        self.gasart_label.setText(self.gasart)
-
         self.thread = QThread()
         self.zeromq_listener = ZMQListener(host, port)
         self.zeromq_listener.moveToThread(self.thread)
-
         self.thread.started.connect(self.zeromq_listener.loop)
 
+        self.gas = Wasserstoff()
+        # self.gasart_label.setText(self.gas.label)
 
         # Connect signals
         self.connect_signals()
@@ -76,22 +71,27 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         self.actionAbout.triggered.connect(self.show_about_dialog)
         self.actionQuit.triggered.connect(QCoreApplication.instance().quit)
         self.zeromq_listener.message.connect(self.signal_received)
-        self.actionWasserstoff.triggered.connect(self.Wasserstoff)
-        self.actionHelium.triggered.connect(self.Helium)
-        self.actionNeon.triggered.connect(self.Neon)
-        self.actionArgon.triggered.connect(self.Argon)
-        self.actionKrypton.triggered.connect(self.Krypton)
-        self.actionXenon.triggered.connect(self.Xenon)
-        self.actionStickstoff.triggered.connect(self.Stickstoff)
+
+        # combo box
+
+        self.comboBox.currentTextChanged.connect(self.schaffe_passendes_gas_objekt)
+
+    @staticmethod
+    def eformat(f, prec, exp_digits):
+        s = "%.*e" % (prec, f)
+        mantissa, exp = s.split('e')
+        # add 1 to digits as 1 is taken by sign +/-
+        return "%se%+0*d" % (mantissa, exp_digits + 1, int(exp))
 
     def signal_received(self, message):
-        l=len(message)
-        l=l-1
+        l = len(message)
+        l = l - 1
         message = message[2:l]
-        print(message)
-        message = Gas.dichte(self, message, self.gasart)
+        dichte, temperatur = self.gas.rechne_dichte_aus(message)
+        label_temperatur = 'Düsentemperatur: ' + str(round(temperatur, 2)) + 'K'
+        self.label_temperatur.setText(label_temperatur)
         self.lcdNumber.setDigitCount(8)
-        self.lcdNumber.display(float(message))
+        self.lcdNumber.display(dichte)
 
     def closeEvent(self, event):
         self.zeromq_listener.running = False
@@ -107,33 +107,24 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         """
         self.statusbar.showMessage(message)
 
-    def Helium(self):
-        self.gasart='Helium'
-        self.gasart_label.setText(self.gasart)
-
-    def Wasserstoff(self):
-        self.gasart='Wasserstoff'
-        self.gasart_label.setText(self.gasart)
-
-    def Neon(self):
-        self.gasart='Helium'
-        self.gasart_label.setText(self.gasart)
-
-    def Argon(self):
-        self.gasart='Argon'
-        self.gasart_label.setText(self.gasart)
-
-    def Krypton(self):
-        self.gasart='Krypton'
-        self.gasart_label.setText(self.gasart)
-
-    def Xenon(self):
-        self.gasart='Xenon'
-        self.gasart_label.setText(self.gasart)
-
-    def Stickstoff(self):
-        self.gasart='Stickstoff'
-        self.gasart_label.setText(self.gasart)
+    def schaffe_passendes_gas_objekt(self, gasart):
+        print (gasart)
+        if gasart == 'Helium':
+            self.gas = Helium()
+        elif gasart == 'Neon':
+            self.gas = Neon()
+        elif gasart == 'Argon':
+            self.gas = Neon()
+        elif gasart == 'Kryptom':
+            self.gas == Krypton()
+        elif gasart == 'Xenon':
+            self.gas == Xenon()
+        elif gasart == 'Wasserstoff':
+            self.gas == Wasserstoff()
+        elif gasart == 'Deuterium':
+            self.gas == Deuterium()
+        elif gasart == 'Stickstoff':
+            self.gas == Stickstoff()
 
     def show_about_dialog(self):
         """
