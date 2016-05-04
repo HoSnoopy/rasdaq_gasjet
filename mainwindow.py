@@ -108,7 +108,6 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         self.statusbar.showMessage(message)
 
     def schaffe_passendes_gas_objekt(self, gasart):
-        print (gasart)
         if gasart == 'Helium':
             self.gas = Helium()
 
