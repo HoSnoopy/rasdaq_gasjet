@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>472</width>
+    <width>601</width>
     <height>449</height>
    </rect>
   </property>
@@ -37,7 +37,7 @@
    <item>
     <widget class="QLabel" name="labelVersion">
      <property name="text">
-      <string>TextLabel</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -47,7 +47,7 @@
    <item>
     <widget class="QLabel" name="labelDescription">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;A visualizer for sorage ring's DCCT current.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Copyright (c) Shahab Sanjari 2016.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;License: GPLv3&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;A visualizer for the internal Gas Target.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Copyright (c) Ulrich Popp 2016.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Thanks to Shahab Sanjari&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;License: GPLv3&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>

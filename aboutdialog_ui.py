@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'rsrc/aboutdialog.ui'
 #
-# Created: Wed Feb 17 20:38:53 2016
-#      by: PyQt5 UI code generator 5.4
+# Created: Wed May  4 12:17:43 2016
+#      by: PyQt5 UI code generator 5.3.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_AbooutDialog(object):
     def setupUi(self, AbooutDialog):
         AbooutDialog.setObjectName("AbooutDialog")
-        AbooutDialog.resize(472, 449)
+        AbooutDialog.resize(601, 449)
         self.verticalLayout = QtWidgets.QVBoxLayout(AbooutDialog)
         self.verticalLayout.setObjectName("verticalLayout")
         self.label = QtWidgets.QLabel(AbooutDialog)
@@ -25,6 +25,7 @@ class Ui_AbooutDialog(object):
         self.labelTitle.setObjectName("labelTitle")
         self.verticalLayout.addWidget(self.labelTitle)
         self.labelVersion = QtWidgets.QLabel(AbooutDialog)
+        self.labelVersion.setText("")
         self.labelVersion.setAlignment(QtCore.Qt.AlignCenter)
         self.labelVersion.setObjectName("labelVersion")
         self.verticalLayout.addWidget(self.labelVersion)
@@ -48,7 +49,6 @@ class Ui_AbooutDialog(object):
         _translate = QtCore.QCoreApplication.translate
         AbooutDialog.setWindowTitle(_translate("AbooutDialog", "Dialog"))
         self.labelTitle.setText(_translate("AbooutDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:600; text-decoration: underline; color:#ff0000;\">rasdaq</span></p><p align=\"center\"><span style=\" font-family:\'Menlo\'; font-size:24pt; font-weight:600; color:#000000;\">(</span><span style=\" font-family:\'Menlo\'; font-size:24pt; font-weight:600; color:#ff0000;\">RAS</span><span style=\" font-family:\'Menlo\'; font-size:24pt; font-weight:600; color:#000000;\">pberry pi </span><span style=\" font-family:\'Menlo\'; font-size:24pt; font-weight:600; color:#ff0000;\">D</span><span style=\" font-family:\'Menlo\'; font-size:24pt; font-weight:600; color:#000000;\">ata </span><span style=\" font-family:\'Menlo\'; font-size:24pt; font-weight:600; color:#ff0000;\">A</span><span style=\" font-family:\'Menlo\'; font-size:24pt; font-weight:600; color:#000000;\">c</span><span style=\" font-family:\'Menlo\'; font-size:24pt; font-weight:600; color:#ff0000;\">Q</span><span style=\" font-family:\'Menlo\'; font-size:24pt; font-weight:600; color:#000000;\">uisition)</span></p></body></html>"))
-        self.labelVersion.setText(_translate("AbooutDialog", "TextLabel"))
-        self.labelDescription.setText(_translate("AbooutDialog", "<html><head/><body><p align=\"center\">A visualizer for sorage ring\'s DCCT current.</p><p align=\"center\"><br/></p><p align=\"center\"><br/></p><p align=\"center\">Copyright (c) Shahab Sanjari 2016.</p><p align=\"center\">License: GPLv3</p><p align=\"center\"><br/></p></body></html>"))
+        self.labelDescription.setText(_translate("AbooutDialog", "<html><head/><body><p align=\"center\">A visualizer for the internal Gas Target.</p><p align=\"center\"><br/></p><p align=\"center\"><br/></p><p align=\"center\">Copyright (c) Ulrich Popp 2016.</p><p align=\"center\">Thanks to Shahab Sanjari</p><p align=\"center\">License: GPLv3</p><p align=\"center\"><br/></p></body></html>"))
         self.pushButton_ok.setText(_translate("AbooutDialog", "OK"))
 

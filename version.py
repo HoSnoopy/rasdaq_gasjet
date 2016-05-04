@@ -1,7 +1,7 @@
 """
-A client/server code for Raspberry Pi ADC input
+Anzeige für Jetdichte am Internen Gastarget der GSI
 
-Xaratustrah
+HoSnoopy
 2016
 
 """

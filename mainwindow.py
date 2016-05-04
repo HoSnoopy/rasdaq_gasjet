@@ -111,20 +111,27 @@ class mainWindow(QMainWindow, Ui_MainWindow):
         print (gasart)
         if gasart == 'Helium':
             self.gas = Helium()
+
         elif gasart == 'Neon':
             self.gas = Neon()
+
         elif gasart == 'Argon':
-            self.gas = Neon()
-        elif gasart == 'Kryptom':
-            self.gas == Krypton()
+            self.gas = Argon()
+
+        elif gasart == 'Krypton':
+            self.gas = Krypton()
+
         elif gasart == 'Xenon':
-            self.gas == Xenon()
+            self.gas = Xenon()
+
         elif gasart == 'Wasserstoff':
-            self.gas == Wasserstoff()
+            self.gas = Wasserstoff()
+
         elif gasart == 'Deuterium':
-            self.gas == Deuterium()
+            self.gas = Deuterium()
+
         elif gasart == 'Stickstoff':
-            self.gas == Stickstoff()
+            self.gas = Stickstoff()
 
     def show_about_dialog(self):
         """

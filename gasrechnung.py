@@ -21,7 +21,6 @@ class Gas:
         edruck = float(edruck)
         vgas = math.sqrt(((2 * self.X * Gas.K * temperatur) / ((self.X - 1) * self.m)))
         dichte = (1e-5 * 4 * self.korr * druck * self.saug) / (3.141 * Gas.K * Gas.RADIUS * temperatur * vgas)
-#        print(self.label)
         return dichte, temperatur
 
 
