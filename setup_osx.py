@@ -45,8 +45,7 @@ options = {'argv_emulation': True,
            'packages': packages,
            'resources': resources,
            'plist': plist,
-           'frameworks': ['%s/plugins/platforms/libqcocoa.dylib' % QTDIR],
-           'iconfile': 'rsrc/icon.icns'
+           'frameworks': ['%s/plugins/platforms/libqcocoa.dylib' % QTDIR]
            }
 
 data_files = ['rsrc/qt.conf']
