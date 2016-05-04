@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """
 A client/server code for Raspberry Pi ADC input
 
