@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'rsrc/mainwindow.ui'
 #
-# Created: Wed May  4 11:16:37 2016
-#      by: PyQt5 UI code generator 5.3.2
+# Created by: PyQt5 UI code generator 5.5.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,17 +11,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(732, 600)
+        MainWindow.resize(742, 630)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.lcdNumber = QtWidgets.QLCDNumber(self.centralwidget)
-        self.lcdNumber.setGeometry(QtCore.QRect(9, 45, 701, 471))
-        self.lcdNumber.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.lcdNumber.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.lcdNumber.setSmallDecimalPoint(False)
-        self.lcdNumber.setObjectName("lcdNumber")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setObjectName("verticalLayout")
         self.ueberschrift = QtWidgets.QLabel(self.centralwidget)
-        self.ueberschrift.setGeometry(QtCore.QRect(9, 9, 282, 30))
         self.ueberschrift.setMaximumSize(QtCore.QSize(16777215, 30))
         font = QtGui.QFont()
         font.setFamily("Arial")
@@ -32,8 +26,21 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.ueberschrift.setFont(font)
         self.ueberschrift.setObjectName("ueberschrift")
+        self.verticalLayout.addWidget(self.ueberschrift)
+        self.lcdNumber = QtWidgets.QLCDNumber(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lcdNumber.sizePolicy().hasHeightForWidth())
+        self.lcdNumber.setSizePolicy(sizePolicy)
+        self.lcdNumber.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.lcdNumber.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.lcdNumber.setSmallDecimalPoint(False)
+        self.lcdNumber.setObjectName("lcdNumber")
+        self.verticalLayout.addWidget(self.lcdNumber)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
-        self.comboBox.setGeometry(QtCore.QRect(9, 533, 111, 21))
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
@@ -43,12 +50,16 @@ class Ui_MainWindow(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
+        self.horizontalLayout.addWidget(self.comboBox)
         self.label_temperatur = QtWidgets.QLabel(self.centralwidget)
-        self.label_temperatur.setGeometry(QtCore.QRect(170, 530, 531, 31))
         self.label_temperatur.setObjectName("label_temperatur")
+        self.horizontalLayout.addWidget(self.label_temperatur)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem)
+        self.verticalLayout.addLayout(self.horizontalLayout)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 732, 19))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 742, 22))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
