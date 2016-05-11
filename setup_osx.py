@@ -12,9 +12,9 @@ from setuptools import setup
 from subprocess import call
 import shutil, os
 
-NAME = 'rdgui'
+NAME = 'rdgui_gasjet'
 
-app = ['rdgui.py']
+app = ['rdgui_gajet.py']
 
 packages = []
 
@@ -54,7 +54,7 @@ setup(
     app=app,
     name=NAME,
     version=__version__,
-    url='https://github.com/xaratustrah/rasdaq',
+    url='https://github.com/HoSnoopy/rasdaq_gasjet',
     license='GPLv.3',
     data_files=data_files,
     setup_requires=['py2app'],
