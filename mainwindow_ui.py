@@ -2,7 +2,8 @@
 
 # Form implementation generated from reading ui file 'rsrc/mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created: Wed May 11 15:38:25 2016
+#      by: PyQt5 UI code generator 5.3.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -59,7 +60,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 742, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 742, 19))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -97,7 +98,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "GasJet"))
         self.ueberschrift.setText(_translate("MainWindow", "Dichte in Partikel/cm³"))
         self.comboBox.setItemText(0, _translate("MainWindow", "Wasserstoff"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Helium"))
