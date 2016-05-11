@@ -44,7 +44,7 @@ data_files.extend(zmq_plugin)
 setup(
     name=NAME,
     version=__version__,
-    url='https://github.com/xaratustrah/rasdaq',
+    url='https://github.com/HoSnoopy/rasdaq_gasjet',
     license='GPLv.3',
     zipfile=None,
     data_files=data_files,

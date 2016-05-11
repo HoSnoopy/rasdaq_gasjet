@@ -66,7 +66,7 @@ You can run the server on the raspberry by:
 
 and accordingly the client by:
 
-    ./rdgui
+    ./rdgui_gasjet
 
 ## Acknowledgements
 Many thanks goes to [carlkl](https://github.com/carlkl) for pointing out the wonderful ZeroMQ library and Erik Bartmann for the good Tutorial.
