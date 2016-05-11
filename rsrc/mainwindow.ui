@@ -6,132 +6,133 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>732</width>
-    <height>600</height>
+    <width>742</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLCDNumber" name="lcdNumber">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>45</y>
-      <width>701</width>
-      <height>471</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
-    </property>
-    <property name="smallDecimalPoint">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="ueberschrift">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>282</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>30</height>
-     </size>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-      <underline>true</underline>
-     </font>
-    </property>
-    <property name="text">
-     <string>Dichte in Partikel/cm³</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>533</y>
-      <width>111</width>
-      <height>21</height>
-     </rect>
-    </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <property name="text">
-      <string>Wasserstoff</string>
-     </property>
+     <widget class="QLabel" name="ueberschrift">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Dichte in Partikel/cm³</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <property name="text">
-      <string>Helium</string>
-     </property>
+     <widget class="QLCDNumber" name="lcdNumber">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="smallDecimalPoint">
+       <bool>false</bool>
+      </property>
+     </widget>
     </item>
     <item>
-     <property name="text">
-      <string>Neon</string>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QComboBox" name="comboBox">
+        <item>
+         <property name="text">
+          <string>Wasserstoff</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Helium</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Neon</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Argon</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Krypton</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Xenon</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Stickstoff</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Deuterium</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_temperatur">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
     </item>
-    <item>
-     <property name="text">
-      <string>Argon</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Krypton</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Xenon</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Stickstoff</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Deuterium</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLabel" name="label_temperatur">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>530</y>
-      <width>531</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>732</width>
-     <height>19</height>
+     <width>742</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
