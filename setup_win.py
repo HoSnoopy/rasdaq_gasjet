@@ -15,7 +15,7 @@ import py2exe
 import zmq
 import zmq.libzmq
 
-NAME = 'rdgui'
+NAME = 'rdgui_gasjet'
 
 packages = ['zmq']
 
@@ -49,7 +49,7 @@ setup(
     zipfile=None,
     data_files=data_files,
     windows=[{
-        'script': 'rdgui.py',
+        'script': 'rdgui_gasjet.py',
 #        'icon_resources': [(1, 'rsrc/icon.ico')]
     }],
     options={'py2exe': options}
