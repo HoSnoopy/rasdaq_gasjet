@@ -93,4 +93,4 @@ while True:
 
     except (KeyboardInterrupt, SystemExit):
         # except:
-        sys.exit()
+        break
