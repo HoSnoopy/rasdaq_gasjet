@@ -7,6 +7,7 @@ import spidev
 import time
 import datetime
 import math
+import sys
 
 spi = spidev.SpiDev()
 
@@ -44,7 +45,7 @@ def widerange(wert):
 
 
 while True:
-
+ try: 
   for s in range (2):
      spi.open(0,s)  # oeffnen des einen oder anderen MCP3208 
      spi.max_speed_hz=(herz)
@@ -66,26 +67,28 @@ while True:
        zeile.append(str(u))
      spi.close() 
 # herausschreiben und Umrechnung der Spannungswerte am Ende der 16 eingelesenen Kanaele
-     if s == 1:
-        ts = time.time()
-        ausgang = (str(datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d_%H:%M:%S')) + ' ')  # Zeitskala
-        ausgang = (ausgang + (ionivac(zeile[1])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[2])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[3])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[4])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[5])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[6])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[7])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[8])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[9])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[10])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[11])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[12])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[13])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[14])) + ' ')
-        ausgang = (ausgang + (ionivac(zeile[15])) + '\n ')
-        print (ausgang)
-        dat = open(datei, 'a')
-        dat.write(str(ausgang))
-        dat.close
-        time.sleep(warte)
+  ts = time.time()
+  ausgang = (str(datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d_%H:%M:%S')) + ' ')  # Zeitskala
+  ausgang = (ausgang + (ionivac(zeile[1])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[2])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[3])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[4])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[5])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[6])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[7])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[8])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[9])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[10])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[11])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[12])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[13])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[14])) + ' ')
+  ausgang = (ausgang + (ionivac(zeile[15])) + '\n ')
+  print (ausgang)
+  with open(datei, 'a') as d:
+     d.write(ausgang)
+  time.sleep(warte)
+
+ except (KeyboardInterrupt, SystemExit):
+# except:
+  sys.exit()
